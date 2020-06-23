@@ -1,0 +1,88 @@
+# Introduction to SQL server
+
+SQL --> Structured Query Language
+
+SQL Server - relational database development by Microsoft
+
+Transact-SQL (T-SQL) - Microsoft's implementation of SQL, with additional functionality
+
+SELECT: retreives data from table
+
+FROM: denotes table from where data is retrieved
+
+; denotes end of query 
+
+multiple columns can be selected by putting a comma between each coloumn name
+
+Select TOP()  --> returns a certain number of rows from the top 
+
+```-- Return 5 rows
+SELECT TOP(5) artist
+FROM artists;```
+
+```-- Return top 5% of rows
+SELECT TOP(5) PERCENT artist
+FROM artists;```
+
+Select DISTINCT --> returns unique values from a coloumn
+
+```-- Return all rows in the table 
+SELECT nerc_region
+FROM grid;```
+
+```SQL
+-- Return unique rows
+SELECT DISTINCT nerc_region
+FROM grid;
+```SQL
+
+Select * --> return all the rows from table
+Suitable for small tables, NOT suitable for large tables.
+
+```-- Return all rows
+SELECT *
+FROM grid;```
+
+Aliasing column names with AS --> renames or alias a column to make results more meaningful
+
+```-- Return coloumn with aliased name
+SELECT demand_loss_mw AS lost_demand
+FROM grid;```
+
+```-- Return coloumn with aliased name
+SELECT description AS cause_of_outage
+FROM grid;```
+
+## Simple Selections
+
+```-- SELECT the country column FROm the eurovision table
+SELECT country
+FROM eurovision;
+
+-- Select the points column
+SELECT points
+FROM eurovision;
+
+-- Limit the number of rows returned
+SELECT TOP(50) points
+FROM eurovision;
+
+-- Return unique countries and use an alias
+SELECT DISTICNT country AS unique_country
+FROM eurovision;```
+
+## More selections
+
+```
+-- Select country and event_year from eurovision
+SELECT country, event_year
+FROM eurovision;
+
+-- Amend the code to select all rows and columns
+SELECT *
+FROM eurovision;
+
+-- Return all columns, resitricting the percent of rows returned
+SELECT TOP (50) PERCENT *
+FROM eurovision;
+```
